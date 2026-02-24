@@ -30,8 +30,6 @@ erDiagram
         int id pk
         string product_name
         string product_desc
-        boolean is_favorite
-        boolean is_flashsale
         int price
         int stock
     }
@@ -69,6 +67,7 @@ erDiagram
         int id pk
         int discount_rate
         string description
+        boolean is_flashale
     }
 
     CART{
