@@ -141,7 +141,7 @@ VALUES
     ('Maya Sari', 'maya@mail.com', 'maya@123'),
     ('Arif Setiawan', 'arif@mail.com', 'arif@123'),
     ('Lina Kartika', 'lina@mail.com', 'lina@123');
-SELECT "fullname","email","password" FROM "USER";
+SELECT "id","fullname","email","password" FROM "USER";
 
 INSERT INTO "PRODUCT" ("product_name","product_desc","price","stock")
 VALUES
@@ -204,4 +204,5 @@ VALUES
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
         '13500',
         '50'
-    ),
+    );
+    SELECT "id","product_name","product_desc","price","stock" FROM "PRODUCT";
