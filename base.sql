@@ -209,9 +209,26 @@ SELECT "id","product_name","product_desc","price","stock" FROM "PRODUCT";
 
 INSERT INTO "CATEGORY" ("category")
 VALUES
-        ('Beverages'),
-        ('Foods'),
-        ('Coffee'),
-        ('Non Coffee'),
-        ('Favorite');
+    ('Beverages'),
+    ('Foods'),
+    ('Coffee'),
+    ('Non Coffee'),
+    ('Favorite');
 SELECT "id","category" FROM "CATEGORY";
+
+INSERT INTO "PRODUCT_VARIANT" ("variant","add_price")
+VALUES
+    ('Hot',0),
+    ('Ice',2000),
+    ('Spicy lvl 1',0),
+    ('Spicy lvl 2',0),
+    ('Spicy lvl 3',1000),
+    ('Non Spicy',0);
+SELECT "id","variant","add_price" FROM "PRODUCT_VARIANT";
+
+INSERT INTO "PRODUCT_SIZE" ("size","add_price")
+VALUES
+    ('Regular',0),
+    ('Medium',2000),
+    ('Large',4000);
+SELECT "id", "size", "add_price" FROM "PRODUCT_SIZE"
