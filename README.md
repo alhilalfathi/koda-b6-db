@@ -17,6 +17,8 @@ erDiagram
     PRODUCT ||--|{ PRODUCT_VARIANT : has
     PRODUCT ||--|{ PRODUCT_SIZE : has
     PRODUCT ||--|{ PRODUCT_IMAGES : has
+    VARIANT ||--|{ PRODUCT_VARIANT :has
+    SIZE ||--|{ PRODUCT_SIZE : has
 
     USER{
         int id pk
@@ -33,16 +35,26 @@ erDiagram
         int stock
     }
 
-    PRODUCT_VARIANT{
+    VARIANT{
         int id pk
         string variant_name
         int add_price
     }
 
-    PRODUCT_SIZE{
+    PRODUCT_VARIANT{
+        int product_id
+        int variant_id
+    }
+
+    SIZE{
         int id pk
         string size
         int add_price
+    }
+
+    PRODUCT_SIZE{
+        int product_id
+        int size_id
     }
 
     PRODUCT_IMAGES{
