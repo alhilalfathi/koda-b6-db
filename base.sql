@@ -89,12 +89,16 @@ CREATE TABLE "DISCOUNT"(
 CREATE TABLE "REVIEWS"(
     "id" SERIAL PRIMARY KEY,
     "user_id" INT,
+    "product_id" INT,
     "messages" VARCHAR(255),
     "rating" INT,
 
     CONSTRAINT fk_user
         FOREIGN KEY ("user_id")
-        REFERENCES "USER"("id")
+        REFERENCES "USER"("id"),
+    CONSTRAINT fk_product
+        FOREIGN KEY ("product_id")
+        REFERENCES "PRODUCT"("id")
 );
 
 CREATE TABLE "CART"(
@@ -259,7 +263,14 @@ INSERT INTO "PRODUCT_VARIANT" ("product_id","variant_id")
 VALUES
     (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),
     (2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(2,7),
-    (3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(3,7);
+    (3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(3,7),
+    (4,1),(4,2),(4,3),(4,4),(4,5),(4,6),(4,7),
+    (5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(5,7),
+    (6,1),(6,2),(6,3),(6,4),(6,5),(6,6),(6,7),
+    (7,8),(7,9),(7,10),(7,11),
+    (8,8),(8,9),(8,10),(8,11),
+    (9,8),(9,9),(9,10),(9,11),
+    (10,1),(10,2),(10,3),(10,4),(10,5),(10,6),(10,7);
 SELECT "product_id","variant_id" FROM "PRODUCT_VARIANT";
 
 INSERT INTO "SIZE" ("size","add_price")
@@ -278,7 +289,14 @@ INSERT INTO "PRODUCT_SIZE" ("product_id","size_id")
 VALUES
     (1,1),(1,2),(1,3),(1,4),
     (2,1),(2,2),(2,3),(2,4),
-    (3,1),(3,2),(3,3),(3,4);
+    (3,1),(3,2),(3,3),(3,4),
+    (4,1),(4,2),(4,3),(4,4),
+    (5,1),(5,2),(5,3),(5,4),
+    (6,1),(6,2),(6,3),(6,4),
+    (7,5),(7,6),(7,7),(7,8),
+    (8,5),(8,6),(8,7),(8,8),
+    (9,5),(9,6),(9,7),(9,8),
+    (10,1),(10,2),(10,3),(10,4);
 SELECT "product_id","size_id" FROM "PRODUCT_SIZE";
 
 INSERT INTO "PRODUCT_IMAGES" ("path","product_id")
@@ -350,12 +368,21 @@ VALUES
     ('123-1771993159506',6,'2026-02-13','Nur Aisyah','nur@mail.com','Depok','dine in',0,4500,45500,'done');
 
 
-INSERT INTO "CART" (
-    "quantity",
-    "size",
-    "variant",
-    "user_id",
-    "product_id"
-)
+INSERT INTO "CART" ("quantity","size","variant","user_id","product_id")
 VALUES
     (1,'Reguler','Non Coffee',1,3);
+SELECT "quantity","size","variant","user_id","product_id" FROM "CART";
+
+INSERT INTO "REVIEWS" ("user_id", "product_id", "messages", "rating")
+VALUES
+    (2,6,'This coffee is so delicious',5),
+    (3,1,'This coffee is so delicious',5),
+    (4,3,'This coffee is so delicious',5),
+    (8,7,'This french fries is so delicious',5),
+    (6,5,'This coffee is so delicious',5),
+    (10,9,'This burger is so delicious',5),
+    (5,8,'This sandwhich is so delicious',5),
+    (9,4,'This coffee is so delicious',5),
+    (7,10,'The tea is so delicious',5),
+    (1,2,'This coffee is so delicious',5);
+SELECT "id","user_id", "product_id", "messages", "rating" FROM "REVIEWS";
