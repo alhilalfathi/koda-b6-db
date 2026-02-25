@@ -14,16 +14,40 @@ CREATE TABLE "PRODUCT"(
     "stock" INT 
 );
 
-CREATE TABLE "PRODUCT_VARIANT"(
+CREATE TABLE "VARIANT"(
     "id" SERIAL PRIMARY KEY,
     "variant" VARCHAR(50),
     "add_price" INT
 );
+CREATE TABLE "PRODUCT_VARIANT"(
+    "id" SERIAL PRIMARY KEY,
+    "product_id" INT,
+    "variant_id" INT,
 
+    CONSTRAINT fk_product
+        FOREIGN KEY("product_id")
+        REFERENCES "PRODUCT"("id"),
+    CONSTRAINT fk_category
+        FOREIGN KEY("variant_id")
+        REFERENCES "VARIANT"("id")
+);
+
+CREATE TABLE "SIZE"(
+    "id" SERIAL PRIMARY KEY,
+    "size" VARCHAR(50),
+    "add_price" INT
+);
 CREATE TABLE "PRODUCT_SIZE"(
     "id" SERIAL PRIMARY KEY,
-    "size" VARCHAR(10),
-    "add_price" INT
+    "product_id" INT,
+    "size_id" INT,
+
+    CONSTRAINT fk_product
+        FOREIGN KEY("product_id")
+        REFERENCES "PRODUCT"("id"),
+    CONSTRAINT fk_category
+        FOREIGN KEY("size_id")
+        REFERENCES "SIZE"("id")
 );
 
 CREATE TABLE "PRODUCT_IMAGES"(
@@ -82,18 +106,18 @@ CREATE TABLE "CART"(
     "product_id" INT,
 
     CONSTRAINT fk_user
-        FOREIGN("user_id")
+        FOREIGN KEY("user_id")
         REFERENCES "USER"("id"),
 
     CONSTRAINT fk_product
-        FOREIGN("product_id")
+        FOREIGN KEY("product_id")
         REFERENCES "PRODUCT"("id")
 
 );
 
 CREATE TABLE "TRANSACTION"(
     "id" SERIAL PRIMARY KEY,
-    "trx_id" INT UNIQUE NOT NULL,
+    "trx_id" VARCHAR(255),
     "user_id" INT,
     "order_date" TIMESTAMP DEFAULT NOW(),
     "fullname" VARCHAR(255),
@@ -105,8 +129,8 @@ CREATE TABLE "TRANSACTION"(
     "total" INT,
     "status_order" VARCHAR(10),
 
-    CONSTRAINT fk_user
-        FOREIGN("user_id")
+CONSTRAINT fk_user
+        FOREIGN KEY("user_id")
         REFERENCES "USER"("id")
 
 );
@@ -120,11 +144,11 @@ CREATE TABLE "TRANSACTION_PRODUCT"(
     "variant" VARCHAR(50)
 
     CONSTRAINT fk_transaction
-        FOREIGN("transaction_id")
+        FOREIGN KEY("transaction_id")
         REFERENCES "TRANSACTION"("id"),
 
     CONSTRAINT fk_product
-        FOREIGN("product_id")
+        FOREIGN KEY("product_id")
         REFERENCES "PRODUCT"("id")
 
 );
@@ -216,7 +240,7 @@ VALUES
     ('Favorite');
 SELECT "id","category" FROM "CATEGORY";
 
-INSERT INTO "PRODUCT_VARIANT" ("variant","add_price")
+INSERT INTO "VARIANT" ("variant","add_price")
 VALUES
     ('Hot',0),
     ('Ice',2000),
@@ -229,14 +253,33 @@ VALUES
     ('Spicy lvl 2',0),
     ('Spicy lvl 3',1000),
     ('Non Spicy',0);
-SELECT "id","variant","add_price" FROM "PRODUCT_VARIANT";
+SELECT "id","variant","add_price" FROM "VARIANT";
 
-INSERT INTO "PRODUCT_SIZE" ("size","add_price")
+INSERT INTO "PRODUCT_VARIANT" ("product_id","variant_id")
 VALUES
-    ('Regular',0),
-    ('Medium',2000),
-    ('Large',4000);
-SELECT "id", "size", "add_price" FROM "PRODUCT_SIZE";
+    (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),
+    (2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(2,7),
+    (3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(3,7);
+SELECT "product_id","variant_id" FROM "PRODUCT_VARIANT";
+
+INSERT INTO "SIZE" ("size","add_price")
+VALUES
+    ('Regular Cup',0),
+    ('Medium Cup',2000),
+    ('Large Cup',4000),
+    ('Extra Large Cup',6000),
+    ('Regular size',0),
+    ('Medium Size',3000),
+    ('Large Size',5000),
+    ('Jumbo Size',8000);
+SELECT "id", "size", "add_price" FROM "SIZE";
+
+INSERT INTO "PRODUCT_SIZE" ("product_id","size_id")
+VALUES
+    (1,1),(1,2),(1,3),(1,4),
+    (2,1),(2,2),(2,3),(2,4),
+    (3,1),(3,2),(3,3),(3,4);
+SELECT "product_id","size_id" FROM "PRODUCT_SIZE";
 
 INSERT INTO "PRODUCT_IMAGES" ("path","product_id")
 VALUES
@@ -286,3 +329,33 @@ VALUES
     (0.25, 'Independent Day', FALSE),
     (0.2, 'Valentine Sale', FALSE);
 SELECT "id","discount_rate","description","is_flashsale" FROM "DISCOUNT";
+
+INSERT INTO "TRANSACTION" (
+    "trx_id", 
+    "user_id", 
+    "order_date", 
+    "fullname", 
+    "email", 
+    "address", 
+    "delivery", 
+    "delivery_fee", 
+    "tax",
+    "total",
+    "status_order"
+) 
+VALUES
+    ('123-1771742973940',1,'2025-12-25','Andi Pratama','andi@mail.com','Jakarta','dine in',0,2500,27500,'done'),
+    ('123-1771743651010',4,'2026-01-2','Dewi Lestari','dewi@mail.com','Bandung','dine in',0,2000,22000,'done'),
+    ('123-1771411090290',7,'2026-02-3','Fajar Nugroho','fajar@mail.com','Depok','dine in',0,4000,44000,'done'),
+    ('123-1771993159506',6,'2026-02-13','Nur Aisyah','nur@mail.com','Depok','dine in',0,4500,45500,'done');
+
+
+INSERT INTO "CART" (
+    "quantity",
+    "size",
+    "variant",
+    "user_id",
+    "product_id"
+)
+VALUES
+    (1,'Reguler','Non Coffee',1,3);
