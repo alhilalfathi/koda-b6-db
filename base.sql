@@ -212,6 +212,6 @@ VALUES
         ('Beverages'),
         ('Foods'),
         ('Coffee'),
-        ('Non Coffee')
+        ('Non Coffee'),
         ('Favorite');
 SELECT "id","category" FROM "CATEGORY";
