@@ -57,7 +57,7 @@ CREATE TABLE "PRODUCT_CATEGORY"(
 
 CREATE TABLE "DISCOUNT"(
     "id" SERIAL PRIMARY KEY,
-    "discount_rate" INT,
+    "discount_rate" FLOAT,
     "description" VARCHAR(255),
     "is_flashsale" BOOLEAN
 );
@@ -220,6 +220,11 @@ INSERT INTO "PRODUCT_VARIANT" ("variant","add_price")
 VALUES
     ('Hot',0),
     ('Ice',2000),
+    ('Normal Sugar',0),
+    ('Less Sugar',0),
+    ('No Sugar',0),
+    ('Normal Ice',0),
+    ('Less Ice',0),
     ('Spicy lvl 1',0),
     ('Spicy lvl 2',0),
     ('Spicy lvl 3',1000),
@@ -267,3 +272,17 @@ VALUES
     (10,1),
     (10,4);
 SELECT "id","product_id","category_id" FROM "PRODUCT_CATEGORY";
+
+INSERT INTO "DISCOUNT" ("discount_rate", "description", "is_flashsale")
+VALUES
+    (0.1, 'Morning Coffee', TRUE),
+    (0.1, 'Afternoon Coffee', TRUE),
+    (0.25, 'Mothers Day', FALSE),
+    (0.15, 'Monday Coffee', TRUE),
+    (0.15, 'Sunday Morning Sale', TRUE),
+    (0.5, 'Christmas Sale', FALSE),
+    (0.2, 'Wednesday Coffee', TRUE),
+    (0.5, 'EID Sale', FALSE),
+    (0.25, 'Independent Day', FALSE),
+    (0.2, 'Valentine Sale', FALSE);
+SELECT "id","discount_rate","description","is_flashsale" FROM "DISCOUNT";
