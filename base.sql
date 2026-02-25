@@ -85,6 +85,18 @@ CREATE TABLE "DISCOUNT"(
     "description" VARCHAR(255),
     "is_flashsale" BOOLEAN
 );
+CREATE TABLE "PRODUCT_DISCOUNT"(
+    "id" SERIAL PRIMARY KEY,
+    "product_id" INT,
+    "discount_id" INT,
+
+    CONSTRAINT fk_product
+        FOREIGN KEY ("product_id")
+        REFERENCES "PRODUCT"("id"),
+    CONSTRAINT fk_discount
+        FOREIGN KEY ("discount_id")
+        REFERENCES "DISCOUNT"("id")
+);
 
 CREATE TABLE "REVIEWS"(
     "id" SERIAL PRIMARY KEY,
@@ -347,6 +359,20 @@ VALUES
     (0.25, 'Independent Day', FALSE),
     (0.2, 'Valentine Sale', FALSE);
 SELECT "id","discount_rate","description","is_flashsale" FROM "DISCOUNT";
+
+INSERT INTO "PRODUCT_DISCOUNT" ("product_id","discount_id")
+VALUES
+    (1,1),
+    (2,4),
+    (3,4),
+    (4,1),
+    (5,1),
+    (6,5),
+    (7,7),
+    (8,1),
+    (9,4),
+    (10,1);
+SELECT "product_id","discount_id" FROM "PRODUCT_DISCOUNT";
 
 INSERT INTO "TRANSACTION" (
     "trx_id", 
