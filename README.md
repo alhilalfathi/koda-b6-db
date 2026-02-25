@@ -81,6 +81,7 @@ erDiagram
 
     TRANSACTION{
         int id pk
+        string trx_id
         int user_id fk
         datetime order_date
         string delivery
