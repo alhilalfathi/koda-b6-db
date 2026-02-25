@@ -246,3 +246,24 @@ VALUES
     ('https://images.pexels.com/photos/2702674/pexels-photo-2702674.jpeg',9),
     ('https://images.pexels.com/photos/28944482/pexels-photo-28944482.jpeg',10);
 SELECT "id","path","product_id" FROM "PRODUCT_IMAGES";
+
+INSERT INTO "PRODUCT_CATEGORY" ("product_id", "category_id")
+VALUES 
+    (1,1),
+    (1,3),
+    (2,1),
+    (2,3),
+    (3,1),
+    (3,4),
+    (4,1),
+    (4,3),
+    (5,1),
+    (5,3),
+    (6,1),
+    (6,3),
+    (7,2),
+    (8,2),
+    (9,2),
+    (10,1),
+    (10,4);
+SELECT "id","product_id","category_id" FROM "PRODUCT_CATEGORY";
