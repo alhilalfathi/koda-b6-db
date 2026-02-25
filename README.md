@@ -23,7 +23,6 @@ erDiagram
         string fullname
         string email
         string password
-        string role
     }
 
     PRODUCT{
@@ -31,6 +30,7 @@ erDiagram
         string product_name
         string product_desc
         int price
+        string category
         int stock
     }
 
