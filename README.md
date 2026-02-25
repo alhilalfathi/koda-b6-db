@@ -83,7 +83,6 @@ erDiagram
     TRANSACTION{
         int id pk
         int user_id fk
-        int product_id fk
         datetime order_date
         string delivery
         string fullname
