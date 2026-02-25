@@ -231,4 +231,18 @@ VALUES
     ('Regular',0),
     ('Medium',2000),
     ('Large',4000);
-SELECT "id", "size", "add_price" FROM "PRODUCT_SIZE"
+SELECT "id", "size", "add_price" FROM "PRODUCT_SIZE";
+
+INSERT INTO "PRODUCT_IMAGES" ("path","product_id")
+VALUES
+    ('https://images.pexels.com/photos/7463455/pexels-photo-7463455.jpeg',1),
+    ('https://images.pexels.com/photos/2530910/pexels-photo-2530910.jpeg',2),
+    ('https://images.pexels.com/photos/12756666/pexels-photo-12756666.jpeg',3),
+    ('https://images.pexels.com/photos/214333/pexels-photo-214333.jpeg',4),
+    ('https://images.pexels.com/photos/28744927/pexels-photo-28744927.jpeg',5),
+    ('https://images.pexels.com/photos/5741238/pexels-photo-5741238.jpeg',6),
+    ('https://images.pexels.com/photos/29150162/pexels-photo-29150162.jpeg',7),
+    ('https://images.pexels.com/photos/236813/pexels-photo-236813.jpeg',8),
+    ('https://images.pexels.com/photos/2702674/pexels-photo-2702674.jpeg',9),
+    ('https://images.pexels.com/photos/28944482/pexels-photo-28944482.jpeg',10);
+SELECT "id","path","product_id" FROM "PRODUCT_IMAGES";
