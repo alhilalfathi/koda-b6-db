@@ -206,3 +206,15 @@ VALUES
         '50'
     );
     SELECT "id","product_name","product_desc","price","stock" FROM "PRODUCT";
+
+    INSERT INTO "CATEGORY" ("category")
+    VALUES
+        ('Beverages'),
+        ('Foods'),
+        ('Hot'),
+        ('Ice'),
+        ('Spicy lvl1'),
+        ('Spicy lvl2'),
+        ('Spicy lvl3'),
+        ('No Spicy');
+    SELECT "id","category" FROM "CATEGORY";
