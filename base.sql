@@ -244,6 +244,36 @@ VALUES
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
         '13500',
         '50'
+    ),
+    (
+        'Cold Brew',
+        'You can explore the menu that we provide with fun and have their own taste and make your day better.',
+        '20500',
+        '45'
+    ),
+    (
+        'Affogato',
+        'You can explore the menu that we provide with fun and have their own taste and make your day better.',
+        '25500',
+        '30'
+    ),
+    (
+        'Thai Tea',
+        'You can explore the menu that we provide with fun and have their own taste and make your day better.',
+        '17000',
+        '50'
+    ),
+    (
+        'Taro Latte',
+        'You can explore the menu that we provide with fun and have their own taste and make your day better.',
+        '22500',
+        '50'
+    ),
+    (
+        'Virgin Mojito',
+        'You can explore the menu that we provide with fun and have their own taste and make your day better.',
+        '17500',
+        '50'
     );
 SELECT "id","product_name","product_desc","price","stock" FROM "PRODUCT";
 
@@ -282,7 +312,12 @@ VALUES
     (7,8),(7,9),(7,10),(7,11),
     (8,8),(8,9),(8,10),(8,11),
     (9,8),(9,9),(9,10),(9,11),
-    (10,1),(10,2),(10,3),(10,4),(10,5),(10,6),(10,7);
+    (10,1),(10,2),(10,3),(10,4),(10,5),(10,6),(10,7),
+    (11,1),(11,2),(11,3),(11,4),(11,5),(11,6),(11,7),
+    (12,1),(12,2),(12,3),(12,4),(12,5),(12,6),(12,7),
+    (13,1),(13,2),(13,3),(13,4),(13,5),(13,6),(13,7),
+    (14,1),(14,2),(14,3),(14,4),(14,5),(14,6),(14,7),
+    (15,1),(15,2),(15,3),(15,4),(15,5),(15,6),(15,7);
 SELECT "product_id","variant_id" FROM "PRODUCT_VARIANT";
 
 INSERT INTO "SIZE" ("size","add_price")
@@ -308,7 +343,12 @@ VALUES
     (7,5),(7,6),(7,7),(7,8),
     (8,5),(8,6),(8,7),(8,8),
     (9,5),(9,6),(9,7),(9,8),
-    (10,1),(10,2),(10,3),(10,4);
+    (10,1),(10,2),(10,3),(10,4),
+    (11,1),(11,2),(11,3),(11,4),
+    (12,1),(12,2),(12,3),(12,4),
+    (13,1),(13,2),(13,3),(13,4),
+    (14,1),(14,2),(14,3),(14,4),
+    (15,1),(15,2),(15,3),(15,4);
 SELECT "product_id","size_id" FROM "PRODUCT_SIZE";
 
 INSERT INTO "PRODUCT_IMAGES" ("path","product_id")
@@ -322,7 +362,12 @@ VALUES
     ('https://images.pexels.com/photos/29150162/pexels-photo-29150162.jpeg',7),
     ('https://images.pexels.com/photos/236813/pexels-photo-236813.jpeg',8),
     ('https://images.pexels.com/photos/2702674/pexels-photo-2702674.jpeg',9),
-    ('https://images.pexels.com/photos/28944482/pexels-photo-28944482.jpeg',10);
+    ('https://images.pexels.com/photos/28944482/pexels-photo-28944482.jpeg',10),
+    ('https://images.pexels.com/photos/2775860/pexels-photo-2775860.jpeg',11),
+    ('https://images.pexels.com/photos/32972513/pexels-photo-32972513.jpeg',12),
+    ('https://images.pexels.com/photos/33241807/pexels-photo-33241807.jpeg',13),
+    ('https://images.pexels.com/photos/10781076/pexels-photo-10781076.jpeg',14),
+    ('https://images.pexels.com/photos/4051263/pexels-photo-4051263.jpeg',15);
 SELECT "id","path","product_id" FROM "PRODUCT_IMAGES";
 
 INSERT INTO "PRODUCT_CATEGORY" ("product_id", "category_id")
@@ -343,7 +388,17 @@ VALUES
     (8,2),
     (9,2),
     (10,1),
-    (10,4);
+    (10,4),
+    (11,1),
+    (11,3),
+    (12,1),
+    (12,3),
+    (13,1),
+    (13,3),
+    (14,1),
+    (14,3),
+    (15,1),
+    (15,3);
 SELECT "id","product_id","category_id" FROM "PRODUCT_CATEGORY";
 
 INSERT INTO "DISCOUNT" ("discount_rate", "description", "is_flashsale")
@@ -371,7 +426,12 @@ VALUES
     (7,7),
     (8,1),
     (9,4),
-    (10,1);
+    (10,1),
+    (11,1),
+    (12,3),
+    (13,4),
+    (14,3),
+    (15,6);
 SELECT "product_id","discount_id" FROM "PRODUCT_DISCOUNT";
 
 INSERT INTO "TRANSACTION" (
