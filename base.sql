@@ -188,92 +188,92 @@ VALUES
     (
         'Hazelnut Latte',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '20000',
-        '50'
+        20000,
+        50
     ),
     (
         'Cappucino',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '20000',
-        '50'
+        20000,
+        50
     ),
     (
         'Matcha Latte',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '25000',
-        '50'
+        25000,
+        50
     ),
     (
         'Caramel Machiato',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '25000',
-        '50'
+        25000,
+        50
     ),
     (
         'Caramel Latte',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '20000',
-        '50'
+        20000,
+        50
     ),
     (
         'Americano',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '15000',
-        '80'
+        15000,
+        80
     ),
     (
         'French Fries',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '15000',
-        '30'
+        15000,
+        30
     ),
     (
         'Sandwhich',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '17000',
-        '25'
+        17000,
+        25
     ),
     (
         'Burger',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '22500',
-        '40'
+        22500,
+        40
     ),
     (
         'Lecy Tea',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '13500',
-        '50'
+        13500,
+        50
     ),
     (
         'Cold Brew',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '20500',
-        '45'
+        20500,
+        45
     ),
     (
         'Affogato',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '25500',
-        '30'
+        25500,
+        30
     ),
     (
         'Thai Tea',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '17000',
-        '50'
+        17000,
+        50
     ),
     (
         'Taro Latte',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '22500',
-        '50'
+        22500,
+        50
     ),
     (
         'Virgin Mojito',
         'You can explore the menu that we provide with fun and have their own taste and make your day better.',
-        '17500',
-        '50'
+        17500,
+        50
     ),
     ('Espresso','Premium espresso with strong character.',18000,60),
     ('Mocha Latte','Chocolate blended with espresso and milk.',23000,50),
