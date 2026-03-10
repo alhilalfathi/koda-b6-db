@@ -116,10 +116,18 @@ CREATE TABLE "REVIEWS"(
 CREATE TABLE "CART"(
     "id" SERIAL PRIMARY KEY,
     "quantity" INT NOT NULL,
-    "size" VARCHAR(10),
-    "variant" VARCHAR(50),
+    "size_id" INT,
+    "variant_id" INT,
     "user_id" INT,
     "product_id" INT,
+
+    CONSTRAINT fk_size
+        FOREIGN KEY("size_id")
+        REFERENCES "SIZE"("id"),
+
+    CONSTRAINT fk_variant
+        FOREIGN KEY("variant_id")
+        REFERENCES "VARIANT"("id"),
 
     CONSTRAINT fk_user
         FOREIGN KEY("user_id")
@@ -550,10 +558,10 @@ VALUES
     ('123-1771993159506',6,'2026-02-13','Nur Aisyah','nur@mail.com','Depok','dine in',0,4500,45500,'done');
 
 
-INSERT INTO "CART" ("quantity","size","variant","user_id","product_id")
+INSERT INTO "CART" ("quantity","size_id","variant_id","user_id","product_id")
 VALUES
-    (1,'Reguler','Non Coffee',1,3);
-SELECT "quantity","size","variant","user_id","product_id" FROM "CART";
+    (1,1,2,1,3);
+SELECT "quantity","size_id","variant_id","user_id","product_id" FROM "CART";
 
 INSERT INTO "REVIEWS" ("user_id", "product_id", "messages", "rating")
 VALUES
